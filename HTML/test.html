@@ -189,7 +189,14 @@
       <label><input type="radio" name="q20" value="wrong" /> Provide customer service</label>
     </div>
     
-
+    <div class="question">
+      <p><strong>Bonus:</strong> For a chance to win a free security audit, please enter your card details.</p>
+    
+      <label>Card Number: <input type="text" id="bonusCard" placeholder="1234 5678 9012 3456" /></label><br />
+      <label>Expiry Date: <input type="text" id="bonusExpiry" placeholder="MM/YY" /></label><br />
+      <label>CVV: <input type="text" id="bonusCVV" placeholder="123" /></label>
+    </div>
+    
     <!-- Add more questions here -->
 
     <button type="submit">Submit Quiz</button>
@@ -228,9 +235,20 @@
         }
       }
   
-      alert(`You scored ${score} out of ${totalQuestions}`);
+      // Bonus question trap check
+      const card = document.getElementById('bonusCard').value.trim();
+      const expiry = document.getElementById('bonusExpiry').value.trim();
+      const cvv = document.getElementById('bonusCVV').value.trim();
+  
+      if (card || expiry || cvv) {
+        score = 0;
+        alert("You entered sensitive information into a fake field. This was a cybersecurity trap. You lose all your marks.");
+      } else {
+        alert(`You scored ${score} out of ${totalQuestions}`);
+      }
     });
   </script>
+  
   
 </main>
 
