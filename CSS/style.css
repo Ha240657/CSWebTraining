@@ -1,63 +1,140 @@
 :root {
-    --bg-color: #282a36;
-    --fg-color: #f8f8f2;
-    --accent: #bd93f9;
-    --nav-bg: #44475a;
-    --nav-hover: #6272a4;
-    --header-bg: #343746;
-    --link-color: #8be9fd;
+  --bg-color: #1a1a1a;
+  --fg-color: #f5f5f5;
+  --primary: #005ea5; /* UK gov blue */
+  --primary-hover: #003d71;
+  --border-color: #2c2c2c;
+  --card-bg: #242424;
+  --nav-bg: #111;
+  --nav-hover: #2a2a2a;
+  --link-color: #66afe9;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --radius: 4px;
+  --spacing: 1rem;
+  --transition: 0.2s ease-in-out;
 }
 
 body {
-    font-family: 'Fira Code', monospace;
-    background-color: var(--bg-color);
-    color: var(--fg-color);
-    margin: 0;
-    padding: 0;
+  font-family: system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--fg-color);
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  line-height: 1.6;
 }
 
 header {
-    background-color: var(--header-bg);
-    color: var(--fg-color);
-    padding: 1.5em 1em;
-    text-align: center;
-    border-bottom: 2px solid var(--accent);
+  background-color: var(--nav-bg);
+  padding: 2rem 1rem;
+  text-align: center;
+  border-bottom: 2px solid var(--primary);
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary);
+  letter-spacing: 0.5px;
+}
+
+header p {
+  margin-top: 0.25rem;
+  font-size: 1rem;
+  color: #bbb;
 }
 
 nav {
-    background-color: var(--nav-bg);
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+  background-color: var(--nav-bg);
+  border-bottom: 1px solid var(--border-color);
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 
 nav a {
-    color: var(--fg-color);
-    padding: 12px 18px;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
+  color: var(--fg-color);
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  border-radius: var(--radius);
+  font-weight: 600;
+  transition: background-color var(--transition);
 }
 
 nav a:hover {
-    background-color: var(--nav-hover);
+  background-color: var(--nav-hover);
+  color: var(--link-color);
 }
 
 main {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1rem;
 }
 
 section {
-    margin-bottom: 40px;
-    border-left: 4px solid var(--accent);
-    padding-left: 15px;
+  margin-bottom: 2rem;
 }
 
-h1, h2 {
-    color: var(--accent);
+h2 {
+  color: var(--primary);
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
 }
 
-a {
-    color: var(--link-color);
+.question {
+  background-color: var(--card-bg);
+  padding: 1.25rem;
+  margin-bottom: 1.5rem;
+  border-radius: var(--radius);
+  border-left: 4px solid var(--primary);
+  box-shadow: var(--shadow);
+}
+
+.question p {
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.question label {
+  display: block;
+  margin: 0.5rem 0;
+  padding: 0.4rem 0.6rem;
+  border-radius: 3px;
+  transition: background-color var(--transition);
+  cursor: pointer;
+}
+
+.question label:hover {
+  background-color: #333;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  margin-right: 0.5rem;
+  accent-color: var(--primary);
+}
+
+button[type="submit"] {
+  display: inline-block;
+  background-color: var(--primary);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: var(--radius);
+  padding: 0.75rem 2rem;
+  margin-top: 1rem;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  transition: background-color var(--transition), transform 0.1s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-1px);
 }
